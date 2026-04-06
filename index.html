@@ -33,7 +33,7 @@ body{font-family:'Outfit',sans-serif}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:rgba(255,255,255,0.05)}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.2);border-radius:3px}
-</style>
+  </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
@@ -45,16 +45,19 @@ body{font-family:'Outfit',sans-serif}
      <h1 id="main-title" class="text-5xl md:text-7xl font-black mb-3" style="color:#f0e6ff;letter-spacing:-2px">Curiosity Games</h1>
      <p class="text-lg space-mono" style="color:#8b7aa8">3 giochi · domande generate dall'AI · sempre diverse</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl w-full px-4"><button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl w-full px-4"><button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
       <div class="text-4xl mb-3">
        🃏
-      </div><h2 class="text-xl font-bold mb-2" style="color:#c4a8ff">Caccia alla Curiosità</h2><p class="text-sm leading-relaxed" style="color:#8b7aa8">10 domande bizzarre, 6 carte, solo 2 giuste. 8 secondi. Un errore = game over.</p></button> <button onclick="startGame('oblio')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#0d1a25,#0a2540);border-color:#1a4a6e;animation-delay:0.25s;opacity:0">
+      </div><h2 class="text-xl font-bold mb-2" style="color:#c4a8ff">Caccia alla Curiosità</h2><p class="text-sm leading-relaxed" style="color:#8b7aa8">10 domande bizzarre, 6 carte, solo 2 giuste. 8 secondi. Un errore = game over.</p></button> <button onclick="startGame('oblio')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#0d1a25,#0a2540);border-color:#1a4a6e;animation-delay:0.2s;opacity:0">
       <div class="text-4xl mb-3">
        📖
-      </div><h2 class="text-xl font-bold mb-2" style="color:#7ec8e3">Curva dell'Oblio</h2><p class="text-sm leading-relaxed" style="color:#5a8a9f">Memorizza parole e curiosità, poi riscrivile. 8 livelli, da 3 a 10 parole. Max 5 errori.</p></button> <button onclick="startGame('sprint')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1a0d,#2a2510);border-color:#5a5020;animation-delay:0.4s;opacity:0">
+      </div><h2 class="text-xl font-bold mb-2" style="color:#7ec8e3">Curva dell'Oblio</h2><p class="text-sm leading-relaxed" style="color:#5a8a9f">Memorizza parole e curiosità, poi riscrivile. 8 livelli, da 3 a 10 parole. Max 5 errori.</p></button> <button onclick="startGame('sprint')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1a0d,#2a2510);border-color:#5a5020;animation-delay:0.3s;opacity:0">
       <div class="text-4xl mb-3">
        ⚡
-      </div><h2 class="text-xl font-bold mb-2" style="color:#f0d060">Curiosity Sprint</h2><p class="text-sm leading-relaxed" style="color:#9a8a50">Fatti veri (verdi) e falsi (rossi) cadono dall'alto. Tocca solo quelli veri! 5 vite, 50 per vincere.</p></button>
+      </div><h2 class="text-xl font-bold mb-2" style="color:#f0d060">Curiosity Sprint</h2><p class="text-sm leading-relaxed" style="color:#9a8a50">Fatti veri (verdi) e falsi (rossi) cadono dall'alto. Tocca solo quelli veri! 5 vite, 50 per vincere.</p></button> <button onclick="startGame('emoji')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a0d2a,#2a1540);border-color:#5d2a8e;animation-delay:0.4s;opacity:0">
+      <div class="text-4xl mb-3">
+       🎨
+      </div><h2 class="text-xl font-bold mb-2" style="color:#e879f9">Emoji Mystery</h2><p class="text-sm leading-relaxed" style="color:#a878b3">Indovina la parola da 5 emoji! 10 round, punti bonus per velocità. Divertimento puro!</p></button>
     </div>
    </div><!-- GAME CONTAINER -->
    <div id="game-screen" class="h-full w-full hidden flex-col overflow-auto" style="background:#0a0a0f">
@@ -62,44 +65,50 @@ body{font-family:'Outfit',sans-serif}
      <div id="game-header-info" class="flex items-center gap-4 text-sm space-mono" style="color:#8b7aa8"></div>
     </div>
     <div id="game-area" class="flex-1 overflow-auto relative"></div>
+   </div><!-- FOOTER -->
+   <div class="w-full text-center py-3 border-t" style="background:rgba(10,10,15,0.95);border-color:rgba(255,255,255,0.08)"><a href="https://www.maestracris.com" target="_blank" rel="noopener noreferrer" class="text-xs space-mono hover:opacity-80 transition-opacity" style="color:#8b7aa8;text-decoration:none"> 🌐 www.maestracris.com </a>
    </div>
   </div>
   <script>
-// ============ CONFIG & SDK ============
-const defaultConfig={main_title:"Curiosity Games",bg_color:"#0a0a0f",surface_color:"#1a1535",text_color:"#f0e6ff",primary_color:"#c4a8ff",secondary_color:"#8b7aa8"};
+// ============ NAVIGATION & STATE ============
+let currentGame=null;
+let gameTimers=[];
 
-window.elementSdk.init({
-  defaultConfig,
-  onConfigChange:async(c)=>{
-    const t=document.getElementById('main-title');
-    if(t)t.textContent=c.main_title||defaultConfig.main_title;
-    document.body.style.fontFamily=c.font_family?`${c.font_family},Outfit,sans-serif`:'Outfit,sans-serif';
-    if(c.font_size){
-      document.querySelectorAll('h1').forEach(e=>e.style.fontSize=`${c.font_size*2.5}px`);
-      document.querySelectorAll('h2').forEach(e=>e.style.fontSize=`${c.font_size*1.3}px`);
-      document.querySelectorAll('p,span,button').forEach(e=>{if(!e.closest('h1')&&!e.closest('h2'))e.style.fontSize=`${c.font_size}px`});
-    }
-    document.getElementById('app').style.background=c.bg_color||defaultConfig.bg_color;
-  },
-  mapToCapabilities:(c)=>({
-    recolorables:[
-      {get:()=>c.bg_color||defaultConfig.bg_color,set:v=>{c.bg_color=v;window.elementSdk.setConfig({bg_color:v})}},
-      {get:()=>c.surface_color||defaultConfig.surface_color,set:v=>{c.surface_color=v;window.elementSdk.setConfig({surface_color:v})}},
-      {get:()=>c.text_color||defaultConfig.text_color,set:v=>{c.text_color=v;window.elementSdk.setConfig({text_color:v})}},
-      {get:()=>c.primary_color||defaultConfig.primary_color,set:v=>{c.primary_color=v;window.elementSdk.setConfig({primary_color:v})}},
-      {get:()=>c.secondary_color||defaultConfig.secondary_color,set:v=>{c.secondary_color=v;window.elementSdk.setConfig({secondary_color:v})}}
-    ],
-    borderables:[],
-    fontEditable:{get:()=>c.font_family||defaultConfig.font_family||'Outfit',set:v=>{c.font_family=v;window.elementSdk.setConfig({font_family:v})}},
-    fontSizeable:{get:()=>c.font_size||16,set:v=>{c.font_size=v;window.elementSdk.setConfig({font_size:v})}}
-  }),
-  mapToEditPanelValues:(c)=>new Map([["main_title",c.main_title||defaultConfig.main_title]])
-});
+function clearTimers(){gameTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});gameTimers=[]}
+function addTimer(t){gameTimers.push(t);return t}
+
+function showScreen(id){
+  document.getElementById('menu-screen').classList.add('hidden');
+  document.getElementById('menu-screen').classList.remove('flex');
+  document.getElementById('game-screen').classList.add('hidden');
+  document.getElementById('game-screen').classList.remove('flex');
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById(id).classList.add('flex');
+}
+
+function backToMenu(){
+  clearTimers();
+  currentGame=null;
+  showScreen('menu-screen');
+}
+
+function startGame(type){
+  clearTimers();
+  currentGame=type;
+  const area=document.getElementById('game-area');
+  area.innerHTML='';
+  showScreen('game-screen');
+  setTimeout(()=>{
+    if(type==='caccia')initCaccia();
+    else if(type==='oblio')initOblio();
+    else if(type==='sprint')initSprint();
+    else if(type==='emoji')initEmoji();
+    if(window.lucide)window.lucide.createIcons();
+  },100);
+}
 
 // ============ AI QUESTION GENERATOR ============
-// Generates unique questions each game using procedural randomization
 const CURIOSITY_DB=[
-  // Caccia alla Curiosità - pool of 60+ facts with wrong answers
   {q:"Qual è l'animale che dorme di più al giorno?",correct:["Koala","Bradipo"],wrong:["Gatto","Leone","Pipistrello","Tartaruga"]},
   {q:"Quale paese ha più isole al mondo?",correct:["Svezia","Finlandia"],wrong:["Indonesia","Filippine","Giappone","Grecia"]},
   {q:"Qual è il metallo più abbondante nella crosta terrestre?",correct:["Alluminio","Ferro"],wrong:["Rame","Oro","Argento","Titanio"]},
@@ -123,19 +132,12 @@ const CURIOSITY_DB=[
 ];
 
 const MEMORY_WORDS_POOL=[
-  // Nature
   "farfalla","vulcano","oceano","foresta","deserto","ghiacciaio","aurora","tempesta","corallo","monsone",
-  // Space
   "galassia","asteroide","cometa","nebulosa","supernova","satellite","eclissi","meteora","pulsar","quasar",
-  // Animals
   "ornitorinco","camaleonte","fenicottero","medusa","pangolino","axolotl","narval","quetzal","okapi","dugongo",
-  // Science
   "molecola","neutrino","fotosintesi","magnetismo","entropia","isotopo","catalisi","osmosi","fusione","fissione",
-  // Culture
   "origami","mosaico","calligrafia","affresco","terracotta","ceramica","papiro","geroglifico","mandala","runa",
-  // Food
   "zafferano","pistacchio","melograno","bergamotto","cardamomo","vaniglia","cannella","wasabi","tartufo","quinoa",
-  // Geography
   "arcipelago","penisola","altopiano","istmo","fiordo","tundra","savana","steppa","delta","oasi"
 ];
 
@@ -198,49 +200,9 @@ const SPRINT_FACTS=[
 ];
 
 function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
-
 function generateCacciaQuestions(){return shuffle(CURIOSITY_DB).slice(0,10).map(q=>({...q,wrong:shuffle(q.wrong).slice(0,4),correct:shuffle(q.correct)}))}
 function generateMemoryWords(count){return shuffle(MEMORY_WORDS_POOL).slice(0,count)}
 function generateSprintFacts(){return shuffle(SPRINT_FACTS)}
-
-// ============ NAVIGATION ============
-let currentGame=null;
-let gameTimers=[];
-
-function clearTimers(){gameTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});gameTimers=[]}
-function addTimer(t){gameTimers.push(t);return t}
-
-function showScreen(id){
-  document.getElementById('menu-screen').classList.add('hidden');
-  document.getElementById('menu-screen').classList.remove('flex');
-  document.getElementById('game-screen').classList.add('hidden');
-  document.getElementById('game-screen').classList.remove('flex');
-  document.getElementById(id).classList.remove('hidden');
-  document.getElementById(id).classList.add('flex');
-}
-
-function backToMenu(){
-  clearTimers();
-  currentGame=null;
-  showScreen('menu-screen');
-}
-
-function startGame(type){
-  clearTimers();
-  currentGame=type;
-  const area=document.getElementById('game-area');
-  area.innerHTML='';
-  showScreen('game-screen');
-  setTimeout(()=>{
-    if(type==='caccia')initCaccia();
-    else if(type==='oblio')initOblio();
-    else if(type==='sprint')initSprint();
-    if(window.lucide)window.lucide.createIcons();
-  },100);
-}
-
-window.backToMenu=backToMenu;
-window.startGame=startGame;
 
 // ============ GAME 1: CACCIA ALLA CURIOSITÀ ============
 function initCaccia(){
@@ -307,7 +269,6 @@ function initCaccia(){
         btn.style.borderColor='#ff6b6b';
         btn.style.color='#ff6b6b';
         btn.classList.add('anim-shake');
-        // highlight correct answers
         document.querySelectorAll('#cards-grid button').forEach(b=>{
           if(questions[current].correct.includes(b.dataset.answer)){
             b.style.background='linear-gradient(145deg,#1a3520,#254530)';
@@ -358,7 +319,6 @@ function initOblio(){
     const words=generateMemoryWords(count);
     const showTime=3000+count*800;
 
-    // Show words phase
     area.innerHTML=`
       <div class="flex flex-col items-center justify-center h-full p-4 text-center" style="min-height:400px">
         <div class="w-full max-w-xl">
@@ -528,7 +488,6 @@ function initSprint(){
 
     field.appendChild(el);
 
-    // Remove if falls off + penalty for missing true facts
     addTimer(setTimeout(()=>{
       if(!caught&&el.parentNode){
         if(isTrue){lives--;updateUI();showMissed(el)}
@@ -574,7 +533,6 @@ function initSprint(){
   }
 
   updateUI();
-  // Spawn facts at intervals
   const spawnInterval=addTimer(setInterval(()=>{
     if(active)spawnFact();
     else clearInterval(spawnInterval);
@@ -582,8 +540,118 @@ function initSprint(){
   spawnFact();
 }
 
-// Init icons
+// ============ GAME 4: EMOJI MYSTERY ============
+function initEmoji(){
+  const emojiPuzzles=[
+    {emojis:['🍎','❤️','🎓','📚','💼'],answer:'scuola',time:0},
+    {emojis:['👑','🦁','🌍','🔥','💪'],answer:'potenza',time:0},
+    {emojis:['☀️','🌈','🌻','🌞','✨'],answer:'bellezza',time:0},
+    {emojis:['🧠','💡','📖','🎯','🚀'],answer:'genio',time:0},
+    {emojis:['🌊','🏖️','🏄','⛱️','🌴'],answer:'spiaggia',time:0},
+    {emojis:['🎬','🍿','🎭','🎪','🎨'],answer:'spettacolo',time:0},
+    {emojis:['🍕','🍝','🇮🇹','🍷','👨‍🍳'],answer:'italia',time:0},
+    {emojis:['❄️','⛄','🎿','🧊','🌨️'],answer:'inverno',time:0},
+    {emojis:['🎵','🎸','🎹','🎤','🎧'],answer:'musica',time:0},
+    {emojis:['🚗','⚡','🏁','💨','🏎️'],answer:'velocita',time:0},
+  ];
+  
+  let current=0,score=0,totalTime=0;
+  const area=document.getElementById('game-area');
+  const info=document.getElementById('game-header-info');
+  const maxTime=120;
+
+  function updateInfo(){
+    info.innerHTML=`<span style="color:#e879f9">🎨 ${current+1}/10</span><span style="color:#f0d060">⭐ ${score}</span><span style="color:#8b7aa8">⏱️ ${Math.max(0,maxTime-totalTime)}s</span>`;
+  }
+
+  function showPuzzle(){
+    if(current>=10){showEmojiResult(score,totalTime,true);return}
+    if(totalTime>=maxTime){showEmojiResult(score,totalTime,false);return}
+    
+    updateInfo();
+    const puzzle=emojiPuzzles[current];
+    const startTime=Date.now();
+    let answered=false;
+
+    area.innerHTML=`
+      <div class="flex flex-col items-center justify-center h-full p-4 text-center" style="min-height:400px">
+        <div class="w-full max-w-2xl">
+          <p class="text-sm space-mono mb-4" style="color:#8b7aa8">INDOVINA LA PAROLA DA QUESTI EMOJI</p>
+          <div class="flex justify-center gap-2 mb-8 text-7xl anim-fade">
+            ${puzzle.emojis.map((e,i)=>`<span style="animation:fadeIn 0.4s ease ${i*0.1}s">${e}</span>`).join('')}
+          </div>
+          <input type="text" id="emoji-input" placeholder="Scrivi la parola..." maxlength="30" 
+            class="w-full max-w-sm px-4 py-3 rounded-xl text-center text-lg font-bold mb-4 border"
+            style="background:rgba(232,121,249,0.08);border-color:rgba(232,121,249,0.3);color:#e879f9;outline:none"
+            onkeyup="if(event.key==='Enter')checkEmojiAnswer()" />
+          <div id="emoji-feedback" class="text-sm h-6 mb-4" style="color:#8b7aa8"></div>
+          <button onclick="checkEmojiAnswer()" class="px-6 py-2 rounded-xl font-bold mb-4" style="background:linear-gradient(135deg,#9d4edd,#e879f9);color:white">Invia</button>
+          <button onclick="skipEmojiPuzzle()" class="px-6 py-2 rounded-xl font-bold text-sm" style="background:rgba(255,255,255,0.05);color:#8b7aa8">Salta (penalità -10s)</button>
+        </div>
+      </div>`;
+
+    const input=document.getElementById('emoji-input');
+    input.focus();
+
+    window.checkEmojiAnswer=function(){
+      if(answered)return;
+      answered=true;
+      const answer=input.value.toLowerCase().trim().replace(/à|á|â|ã|ä/g,'a').replace(/è|é|ê|ë/g,'e').replace(/ì|í|î|ï/g,'i').replace(/ò|ó|ô|õ|ö/g,'o').replace(/ù|ú|û|ü/g,'u');
+      const correct=puzzle.answer.replace(/à|á|â|ã|ä/g,'a').replace(/è|é|ê|ë/g,'e').replace(/ì|í|î|ï/g,'i').replace(/ò|ó|ô|õ|ö/g,'o').replace(/ù|ú|û|ü/g,'u');
+      const elapsed=Math.floor((Date.now()-startTime)/1000);
+      const bonus=Math.max(0,10-elapsed);
+
+      const fb=document.getElementById('emoji-feedback');
+      if(answer===correct){
+        const points=5+bonus;
+        score+=points;
+        totalTime+=elapsed;
+        fb.innerHTML=`✅ CORRETTO! +${points} punti${bonus>0?` (+${bonus} bonus velocità)`:''}`; 
+        fb.style.color='#4ade80';
+        input.style.borderColor='#4ade80';
+        input.style.background='rgba(74,222,128,0.1)';
+        addTimer(setTimeout(()=>{current++;showPuzzle()},1200));
+      } else {
+        fb.innerHTML=`❌ No! Era "${puzzle.answer}"`; 
+        fb.style.color='#ff6b6b';
+        input.style.borderColor='#ff6b6b';
+        input.style.background='rgba(255,107,107,0.1)';
+        totalTime+=elapsed;
+        addTimer(setTimeout(()=>{current++;showPuzzle()},1500));
+      }
+    };
+
+    window.skipEmojiPuzzle=function(){
+      if(answered)return;
+      answered=true;
+      totalTime+=15;
+      const fb=document.getElementById('emoji-feedback');
+      fb.innerHTML=`⏭️ Saltato! Era "${puzzle.answer}"`; 
+      fb.style.color='#8b7aa8';
+      addTimer(setTimeout(()=>{current++;showPuzzle()},1000));
+    };
+  }
+
+  function showEmojiResult(s,time,won){
+    area.innerHTML=`
+      <div class="flex flex-col items-center justify-center h-full p-4 text-center">
+        <div class="anim-fade">
+          <div class="text-6xl mb-4">${won?'🎨':'⏰'}</div>
+          <h2 class="text-3xl font-black mb-2" style="color:${won?'#e879f9':'#ff6b6b'}">${won?'EMOJI MASTER!':'TEMPO SCADUTO'}</h2>
+          <p class="text-lg mb-6" style="color:#8b7aa8">Punti: ${s} · Tempo: ${time}s</p>
+          <div class="flex gap-3 justify-center">
+            <button onclick="startGame('emoji')" class="px-6 py-3 rounded-xl font-bold" style="background:linear-gradient(135deg,#9d4edd,#e879f9);color:white">🔄 Rigioca</button>
+            <button onclick="backToMenu()" class="px-6 py-3 rounded-xl font-bold" style="background:rgba(255,255,255,0.1);color:#8b7aa8">Menu</button>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  showPuzzle();
+}
+
+// Init
 lucide.createIcons();
-</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7ea043303f3765',t:'MTc3NTQ1NTc5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7ea83aa1dc3765',t:'MTc3NTQ1NjExNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
