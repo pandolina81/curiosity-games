@@ -39,13 +39,15 @@ body{font-family:'Outfit',sans-serif}
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div id="app" class="h-full w-full overflow-auto" style="background:#0a0a0f"><!-- MENU -->
+  <div id="app" class="h-full w-full overflow-auto" style="background:#0a0a0f">
+   <!-- MENU -->
    <div id="menu-screen" class="h-full w-full flex flex-col items-center justify-center p-4" style="background:linear-gradient(135deg,#0a0a0f 0%,#1a1025 50%,#0a0a0f 100%)">
     <div class="text-center mb-10 anim-fade">
      <h1 id="main-title" class="text-5xl md:text-7xl font-black mb-3" style="color:#f0e6ff;letter-spacing:-2px">Curiosity Games</h1>
      <p class="text-lg space-mono" style="color:#8b7aa8">3 giochi · domande generate dall'AI · sempre diverse</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl w-full px-4"><button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl w-full px-4">
+     <button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
       <div class="text-4xl mb-3">
        🃏
       </div><h2 class="text-xl font-bold mb-2" style="color:#c4a8ff">Caccia alla Curiosità</h2><p class="text-sm leading-relaxed" style="color:#8b7aa8">10 domande bizzarre, 6 carte, solo 2 giuste. 8 secondi. Un errore = game over.</p></button> <button onclick="startGame('oblio')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#0d1a25,#0a2540);border-color:#1a4a6e;animation-delay:0.25s;opacity:0">
@@ -58,7 +60,8 @@ body{font-family:'Outfit',sans-serif}
     </div>
    </div><!-- GAME CONTAINER -->
    <div id="game-screen" class="h-full w-full hidden flex-col overflow-auto" style="background:#0a0a0f">
-    <div class="flex items-center justify-between p-3 px-5" style="background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.08)"><button onclick="backToMenu()" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold" style="color:#8b7aa8;background:rgba(255,255,255,0.05)"> <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Menu </button>
+    <div class="flex items-center justify-between p-3 px-5" style="background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.08)">
+     <button onclick="backToMenu()" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold" style="color:#8b7aa8;background:rgba(255,255,255,0.05)"> <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Menu </button>
      <div id="game-header-info" class="flex items-center gap-4 text-sm space-mono" style="color:#8b7aa8"></div>
     </div>
     <div id="game-area" class="flex-1 overflow-auto relative"></div>
@@ -219,13 +222,13 @@ function showScreen(id){
   document.getElementById(id).classList.add('flex');
 }
 
-window.backToMenu=function(){
+function backToMenu(){
   clearTimers();
   currentGame=null;
   showScreen('menu-screen');
 }
 
-window.startGame=function(type){
+function startGame(type){
   clearTimers();
   currentGame=type;
   const area=document.getElementById('game-area');
@@ -238,6 +241,9 @@ window.startGame=function(type){
     if(window.lucide)window.lucide.createIcons();
   },100);
 }
+
+window.backToMenu=backToMenu;
+window.startGame=startGame;
 
 // ============ GAME 1: CACCIA ALLA CURIOSITÀ ============
 function initCaccia(){
@@ -582,5 +588,5 @@ function initSprint(){
 // Init icons
 lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7e8d0214d83765',t:'MTc3NTQ1NTAwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7e9d50e5db3765',t:'MTc3NTQ1NTY3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
