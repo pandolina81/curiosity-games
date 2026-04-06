@@ -7,9 +7,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Outfit:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-html,body{height:100%;margin:0;padding:0;width:100%;overflow:hidden}
+html,body{height:100%;margin:0;padding:0;width:100%;overflow:hidden;font-family:'Outfit',sans-serif}
 *{box-sizing:border-box}
-body{font-family:'Outfit',sans-serif}
 .space-mono{font-family:'Space Mono',monospace}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(var(--accent-rgb),0.3)}50%{box-shadow:0 0 40px rgba(var(--accent-rgb),0.6)}}
@@ -38,36 +37,40 @@ body{font-family:'Outfit',sans-serif}
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full">
-  <div id="app" class="h-full w-full overflow-auto" style="background:#0a0a0f"><!-- MENU -->
-   <div id="menu-screen" class="h-full w-full flex flex-col items-center justify-center p-4" style="background:linear-gradient(135deg,#0a0a0f 0%,#1a1025 50%,#0a0a0f 100%)">
-    <div class="text-center mb-8 anim-fade px-4">
-     <h1 id="main-title" class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-2" style="color:#f0e6ff;letter-spacing:-1px">Curiosity Games</h1>
-     <p class="text-xs sm:text-sm md:text-base space-mono" style="color:#8b7aa8">3 giochi · domande generate dall'AI · sempre diverse</p>
+ <body class="h-full overflow-hidden">
+  <div id="app" class="h-full w-full overflow-hidden flex flex-col" style="background:#0a0a0f">
+   <!-- MENU -->
+   <div id="menu-screen" class="h-full w-full flex flex-col items-center justify-center overflow-auto p-3 sm:p-5" style="background:linear-gradient(135deg,#0a0a0f 0%,#1a1025 50%,#0a0a0f 100%)">
+    <div class="text-center mb-6 sm:mb-8 anim-fade w-full px-2">
+     <h1 id="main-title" class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-1 sm:mb-2" style="color:#f0e6ff;letter-spacing:-1px;line-height:1.1">Curiosity Games</h1>
+     <p class="text-xs sm:text-sm md:text-base space-mono" style="color:#8b7aa8">3 giochi · domande dall'AI · sempre diverse</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl w-full px-3 sm:px-4"><button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
-      <div class="text-4xl mb-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 w-full max-w-6xl px-1 sm:px-2">
+     <button onclick="startGame('caccia')" class="card-hover rounded-2xl p-4 sm:p-5 md:p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
+      <div class="text-3xl sm:text-4xl mb-2 sm:mb-3">
        🃏
-      </div><h2 class="text-xl font-bold mb-2" style="color:#c4a8ff">Caccia alla Curiosità</h2><p class="text-sm leading-relaxed" style="color:#8b7aa8">10 domande bizzarre, 6 carte, solo 2 giuste. 8 secondi. Un errore = game over.</p></button> <button onclick="startGame('oblio')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#0d1a25,#0a2540);border-color:#1a4a6e;animation-delay:0.2s;opacity:0">
-      <div class="text-4xl mb-3">
+      </div><h2 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2" style="color:#c4a8ff;line-height:1.2">Caccia alla Curiosità</h2><p class="text-xs sm:text-sm leading-relaxed" style="color:#8b7aa8">10 domande bizzarre, 6 carte, solo 2 giuste. 8 secondi. Un errore = game over.</p></button> <button onclick="startGame('oblio')" class="card-hover rounded-2xl p-4 sm:p-5 md:p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#0d1a25,#0a2540);border-color:#1a4a6e;animation-delay:0.2s;opacity:0">
+      <div class="text-3xl sm:text-4xl mb-2 sm:mb-3">
        📖
-      </div><h2 class="text-xl font-bold mb-2" style="color:#7ec8e3">Curva dell'Oblio</h2><p class="text-sm leading-relaxed" style="color:#5a8a9f">Memorizza parole e curiosità, poi riscrivile. 8 livelli, da 3 a 10 parole. Max 5 errori.</p></button> <button onclick="startGame('sprint')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1a0d,#2a2510);border-color:#5a5020;animation-delay:0.3s;opacity:0">
-      <div class="text-4xl mb-3">
+      </div><h2 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2" style="color:#7ec8e3;line-height:1.2">Curva dell'Oblio</h2><p class="text-xs sm:text-sm leading-relaxed" style="color:#5a8a9f">Memorizza parole e curiosità, poi riscrivile. 8 livelli, da 3 a 10 parole. Max 5 errori.</p></button> <button onclick="startGame('sprint')" class="card-hover rounded-2xl p-4 sm:p-5 md:p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1a0d,#2a2510);border-color:#5a5020;animation-delay:0.3s;opacity:0">
+      <div class="text-3xl sm:text-4xl mb-2 sm:mb-3">
        ⚡
-      </div><h2 class="text-xl font-bold mb-2" style="color:#f0d060">Curiosity Sprint</h2><p class="text-sm leading-relaxed" style="color:#9a8a50">Fatti veri (verdi) e falsi (rossi) cadono dall'alto. Tocca solo quelli veri! 5 vite, 50 per vincere.</p></button> <button onclick="startGame('emoji')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a0d2a,#2a1540);border-color:#5d2a8e;animation-delay:0.4s;opacity:0">
-      <div class="text-4xl mb-3">
+      </div><h2 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2" style="color:#f0d060;line-height:1.2">Curiosity Sprint</h2><p class="text-xs sm:text-sm leading-relaxed" style="color:#9a8a50">Fatti veri (verdi) e falsi (rossi) cadono dall'alto. Tocca solo quelli veri! 5 vite, 50 per vincere.</p></button> <button onclick="startGame('emoji')" class="card-hover rounded-2xl p-4 sm:p-5 md:p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a0d2a,#2a1540);border-color:#5d2a8e;animation-delay:0.4s;opacity:0">
+      <div class="text-3xl sm:text-4xl mb-2 sm:mb-3">
        🎨
-      </div><h2 class="text-xl font-bold mb-2" style="color:#e879f9">Emoji Mystery</h2><p class="text-sm leading-relaxed" style="color:#a878b3">Indovina la parola da 5 emoji! 10 round, punti bonus per velocità. Divertimento puro!</p></button>
+      </div><h2 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2" style="color:#e879f9;line-height:1.2">Emoji Mystery</h2><p class="text-xs sm:text-sm leading-relaxed" style="color:#a878b3">Indovina la parola da 5 emoji! 10 round, punti bonus per velocità. Divertimento puro!</p></button>
     </div>
    </div><!-- GAME CONTAINER -->
-   <div id="game-screen" class="h-full w-full hidden flex-col overflow-auto" style="background:#0a0a0f">
-    <div class="flex items-center justify-between p-3 px-5" style="background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.08)"><button onclick="backToMenu()" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold" style="color:#8b7aa8;background:rgba(255,255,255,0.05)"> <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Menu </button>
-     <div id="game-header-info" class="flex items-center gap-4 text-sm space-mono" style="color:#8b7aa8"></div>
+   <div id="game-screen" class="h-full w-full hidden flex-col overflow-hidden" style="background:#0a0a0f">
+    <div class="flex items-center justify-between p-2 px-3 sm:p-3 sm:px-4 flex-shrink-0" style="background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.08)">
+     <button onclick="backToMenu()" class="flex items-center gap-2 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex-shrink-0" style="color:#8b7aa8;background:rgba(255,255,255,0.05)"> <i data-lucide="arrow-left" style="width:16px;height:16px"></i> <span class="hidden sm:inline">Menu</span> </button>
+     <div id="game-header-info" class="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm space-mono flex-wrap justify-end flex-shrink-0" style="color:#8b7aa8"></div>
     </div>
-    <div id="game-area" class="flex-1 overflow-auto relative"></div>
-   </div><!-- FOOTER -->
-   <div class="w-full text-center py-3 border-t" style="background:rgba(10,10,15,0.95);border-color:rgba(255,255,255,0.08)"><a href="https://www.maestracris.com" target="_blank" rel="noopener noreferrer" class="text-xs space-mono hover:opacity-80 transition-opacity" style="color:#8b7aa8;text-decoration:none"> 🌐 www.maestracris.com </a>
+    <div id="game-area" class="flex-1 overflow-auto w-full relative"></div>
    </div>
+  </div><!-- FOOTER -->
+  <div class="w-full text-center py-2 sm:py-3 border-t flex-shrink-0" style="background:rgba(10,10,15,0.95);border-color:rgba(255,255,255,0.08)">
+   <a href="https://www.maestracris.com" target="_blank" rel="noopener noreferrer" class="text-xs space-mono hover:opacity-80 transition-opacity" style="color:#8b7aa8;text-decoration:none"> 🌐 www.maestracris.com </a>
   </div>
   <script>
 // ============ NAVIGATION & STATE ============
@@ -653,5 +656,5 @@ function initEmoji(){
 // Init
 lucide.createIcons();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7eb86f65053765',t:'MTc3NTQ1Njc4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7ebc0572c4ee4f',t:'MTc3NTQ1NjkyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
