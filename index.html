@@ -7,9 +7,9 @@
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Outfit:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-html,body{height:100%;margin:0;padding:0;width:100%}
+html,body{height:100%;margin:0;padding:0;width:100%;overflow:hidden}
 *{box-sizing:border-box}
-body{font-family:'Outfit',sans-serif;overflow:hidden}
+body{font-family:'Outfit',sans-serif}
 .space-mono{font-family:'Space Mono',monospace}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(var(--accent-rgb),0.3)}50%{box-shadow:0 0 40px rgba(var(--accent-rgb),0.6)}}
@@ -39,15 +39,13 @@ body{font-family:'Outfit',sans-serif;overflow:hidden}
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div id="app" class="h-full w-full overflow-auto" style="background:#0a0a0f">
-   <!-- MENU -->
+  <div id="app" class="h-full w-full overflow-auto" style="background:#0a0a0f"><!-- MENU -->
    <div id="menu-screen" class="h-full w-full flex flex-col items-center justify-center p-4" style="background:linear-gradient(135deg,#0a0a0f 0%,#1a1025 50%,#0a0a0f 100%)">
     <div class="text-center mb-8 anim-fade px-4">
      <h1 id="main-title" class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-2" style="color:#f0e6ff;letter-spacing:-1px">Curiosity Games</h1>
      <p class="text-xs sm:text-sm md:text-base space-mono" style="color:#8b7aa8">3 giochi · domande generate dall'AI · sempre diverse</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl w-full px-3 sm:px-4">
-     <button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl w-full px-3 sm:px-4"><button onclick="startGame('caccia')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#1a1535,#251845);border-color:#3d2a6e;animation-delay:0.1s;opacity:0">
       <div class="text-4xl mb-3">
        🃏
       </div><h2 class="text-xl font-bold mb-2" style="color:#c4a8ff">Caccia alla Curiosità</h2><p class="text-sm leading-relaxed" style="color:#8b7aa8">10 domande bizzarre, 6 carte, solo 2 giuste. 8 secondi. Un errore = game over.</p></button> <button onclick="startGame('oblio')" class="card-hover rounded-2xl p-6 text-left border anim-fade" style="background:linear-gradient(145deg,#0d1a25,#0a2540);border-color:#1a4a6e;animation-delay:0.2s;opacity:0">
@@ -63,14 +61,12 @@ body{font-family:'Outfit',sans-serif;overflow:hidden}
     </div>
    </div><!-- GAME CONTAINER -->
    <div id="game-screen" class="h-full w-full hidden flex-col overflow-auto" style="background:#0a0a0f">
-    <div class="flex items-center justify-between p-3 px-5" style="background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.08)">
-     <button onclick="backToMenu()" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold" style="color:#8b7aa8;background:rgba(255,255,255,0.05)"> <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Menu </button>
+    <div class="flex items-center justify-between p-3 px-5" style="background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.08)"><button onclick="backToMenu()" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold" style="color:#8b7aa8;background:rgba(255,255,255,0.05)"> <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Menu </button>
      <div id="game-header-info" class="flex items-center gap-4 text-sm space-mono" style="color:#8b7aa8"></div>
     </div>
     <div id="game-area" class="flex-1 overflow-auto relative"></div>
    </div><!-- FOOTER -->
-   <div class="w-full text-center py-3 border-t" style="background:rgba(10,10,15,0.95);border-color:rgba(255,255,255,0.08)">
-    <a href="https://www.maestracris.com" target="_blank" rel="noopener noreferrer" class="text-xs space-mono hover:opacity-80 transition-opacity" style="color:#8b7aa8;text-decoration:none"> 🌐 www.maestracris.com </a>
+   <div class="w-full text-center py-3 border-t" style="background:rgba(10,10,15,0.95);border-color:rgba(255,255,255,0.08)"><a href="https://www.maestracris.com" target="_blank" rel="noopener noreferrer" class="text-xs space-mono hover:opacity-80 transition-opacity" style="color:#8b7aa8;text-decoration:none"> 🌐 www.maestracris.com </a>
    </div>
   </div>
   <script>
@@ -657,5 +653,5 @@ function initEmoji(){
 // Init
 lucide.createIcons();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7eb4cd13ea3765',t:'MTc3NTQ1NjYzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7eb86f65053765',t:'MTc3NTQ1Njc4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
